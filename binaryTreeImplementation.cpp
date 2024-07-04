@@ -1,4 +1,11 @@
 //page 46 and 47
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
 
 #include <iostream>
 #include <queue>
@@ -19,6 +26,7 @@ class node{
     }
 };
 
+//building tree
 node* buildTree(node* root){
     cout << "Enter the data for the node" <<endl;
     int data;
@@ -36,6 +44,7 @@ node* buildTree(node* root){
     return root;
 }   
 
+//tree traversal
 void levelOrderTraversal(node* root){
     queue<node*>q;
     q.push(root);
@@ -65,6 +74,42 @@ void levelOrderTraversal(node* root){
         
     }
     
+}
+
+//inorder Traversal
+
+void inOrder(node* root){
+    //LNR
+    if(root == NULL){
+        return;
+    }
+    inOrder(root->left);
+        cout << root->data << endl;
+        inOrder(root->right);
+}
+
+//preOrder Traversal
+
+void preOrder(node* root){
+    //NLR
+    if(root == NULL){
+        return;
+    }
+    cout << root->data << endl;
+    preOrder(root->left);
+    preOrder(root->right);
+}
+
+//postOrder Traversal
+
+void postOrder(node* root){
+    //LRN
+    if(root == NULL){
+        return;
+    }
+    postOrder(root->left);
+    postOrder(root->right);
+    cout << root->data << endl;
 }
 
 int main()
